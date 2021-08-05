@@ -73,6 +73,6 @@
 
 [AVM规范](./8_规范/4_AVM规范.md)
 
-[ArbOS信息与log格式](../8_规范/5_ArbOS信息与log格式.md)
+[ArbOS信息与log格式](./8_规范/5_ArbOS信息与log格式.md)
 
 [合约文档](./8_规范/6_合约文档.md)
