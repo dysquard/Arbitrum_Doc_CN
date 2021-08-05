@@ -272,22 +272,22 @@ VM状态不外乎这几种：特殊状态Halted（暂停），特殊状态ErrorS
 | 0xa5                                            | setbuffer64   | Pop three values (A), (B) and (C) off the stack. The value A must be a buffer, B must be an integer smaller than 2**64-7 and C must be an integer smaller than 2**64. If any of these conditions are not met, raise an error. Pushes to stack a new buffer that is same as A except that bytes in positions B..B+7 are now BE representation of C.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 100                       |
 | 0xa6                                            | setbuffer256  | Pop three values (A), (B) and (C) off the stack. The value A must be a buffer, B must be an integer smaller than 2\*\*64-31 and C must be an integer. If any of these conditions are not met, raise an error. Pushes to stack a new buffer that is same as A except that bytes in positions B..B+31 are now BE representation of C.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 100                       |
 
-### Definition of `keccakf`
+### `keccakf`的定义
 
-The `keccakf` function is computed by the the `keccakf` instruction. The function takes an array of seven Integers as input, and produces an array of seven Integers as output.
+`keccakf`函数是由`keccakf`指令计算的。该函数以七个整形组成的数组为输入，输出一个七个整形组成的数组。
 
-The function carries out three steps.
+该函数分为三步。
 
-1. Using the input array of seven Integers, derive a 200-byte string. For i = 0 through 5 inclusive, bytes _32i_ through _32i+31_ of the result are set equal to the 32-byte big-endian representation of _input[i]_. Bytes 192-199 of the result are set equal to the 8-byte big-endian representation _input[6] % (2\*\*64)_.
-2. Using the result of the Step 1 as input, compute the function KECCAK-p[1600, 24] as defined in the SHA-3 standard (FIPS PUB 202, dated August 2015), producing a 200-byte string as output.
-3. Using the result of Step 2 is input, derive an output array of seven Integers. This array is the result produced by the `keccakf`instruction. For i = 0 through 5 inclusive, _output[i]_ is set equal to bytes _32i_ through _32i+31_ of the result of Step 2 (interpreted as a 32-byte big-endian Integer). output[6] is set equal to bytes 192-199 of the result of Step 2 (interpreted as an 8-byte big-endian Integer in the range 0 through _(2\*\*64)-1)_).
+1. 使用七个整形组成的数组，得到一个200位的字符串。从 i = 0 至 5 （含）, 该结果的 _32i_ 到 _32i+31_ 字节被设为等于 _input[i]_ 的32位大端序形态. 该结果的192-199 字节被设为等于 _input[6] % (2\*\*64)_ 的8位大端序形态.
+2. 以第一步的结果作为输入，使用SHA-3 标准 (FIPS PUB 202, dated August 2015)中的函数KECCAK-p[1600, 24]计算，输出一个200位的字符串。
+3. 使用第二步的结果作为输入，得到一个七位整形的数组。该数组是由`keccakf`指令生成的。 对于 i = 0 至 5 （含）, _output[i]_ 设为等于结果2的 (解析为32位大端序整形) _32i_ 至 _32i+31_ 字节. output[6] 设置为结果2(解析为一个8位大端序整形 in the range 0 至 _(2\*\*64)-1)_)的 192-199 字节。
 
-### Definition of `sha256f`
+### `sha256f`的定义
 
-The `sha256f` function is computed by the `sha256f` instruction. The function takes 3 Integers as input, and produces, and produces an Integer as output.
+`sha256f` 函数由 `sha256f` 指令计算的. 该函数使用三个整形作为输入，并输出一个整形。
 
-The function carries out three steps.
+该函数有三步。
 
-1. The 32 byte little-endian representation of the first item from the stack is interpreted as the digest and the 32 byte representations of the second and third items from the stack are concatenated and interpreted as the input array.
-2. Using the digest and input array from Step 1, compute the SHA256 compression function, producing a 32 byte string as output
-3. Using the result of Step 2 as input, derive an Integer from the little-endian interpretation of the output
+1. 栈的第一项的32位小端序形式解析为摘要，第二和第三项的32位形态串接并解析为输入数组。
+2. 使用第一步中的摘要和输入数组，进行SHA256压缩运算，输出32位字符串。
+3. 使用2的结果作为输入，得出其小端序整形
