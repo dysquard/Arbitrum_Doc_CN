@@ -32,4 +32,4 @@ ArbChain时可以设置一系列参数。该文档对这些参数进行了详细
 关于选取参数的更多分析请见我们的Medium [optimizing challenge periods](https://medium.com/offchainlabs/optimizing-challenge-periods-in-rollup-b61378c87277) 。
 
 ←  [1_本地区块链](./6_运行节点/1_本地区块链.md)
-→  [1_聚合器](./6_运行节点/1_聚合器.md)
+→  [1_聚合器](./7_杂项/1_聚合器.md)

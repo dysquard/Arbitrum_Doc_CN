@@ -10,4 +10,4 @@ ArbOS是L2上可信赖的『操作系统』，它负责将各个不受信任的�
 客户端、EthBridge和ArbOS之间的通信信息格式，请见[ArbOS信息与log格式](../8_规范/ArbOS信息与log格式.md)。
 
 ←[1_聚合器](1_聚合器.md)
-→[2_ArbOS](2_ArbOS.md)
+→[3_TxCall生命周期](3_TxCall生命周期.md)

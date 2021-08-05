@@ -70,10 +70,12 @@
 
 [推进与争议](./8_规范/3_推进与争议.md)
 
-下列部分尚未完成
-
 [AVM规范](./8_规范/4_AVM规范.md)
 
 [ArbOS信息与log格式](./8_规范/5_ArbOS信息与log格式.md)
 
 [合约文档](./8_规范/6_合约文档.md)
+
+---------------------------------------------------------------
+
+译者: [Ben Law](https://github.com/dysquard/Arbitrum_Doc_CN) @ [Go Pocket](https://gopocket.finance) Studio

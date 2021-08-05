@@ -80,4 +80,4 @@ interface ArbSys {
 
 
 ← [2_合约部署](2_合约部署.md)
-→ [1_Layers之间的通信](../4_l1&l2互通性/1_Layers之间的通信.md)
+→ [1_Layers之间的通信](../4_l1和l2互通性/1_Layers之间的通信.md)
