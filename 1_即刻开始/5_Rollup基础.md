@@ -25,7 +25,7 @@ Arbitrum Rollup是一条有超级可扩容性的二层网络L2链。像所有的
 
 从以太坊向Arbitrum移植合约快速又简单，无需更改任何代码或下载新软件。Arbitrum就像以太坊一样完全支持EVM。这意味着所有以太坊上智能合约的语言（如所有版本的Solidity，Vyper Yul）同样也被Arbitrum原生支持。详细兼容性请见[Solidity Support · Offchain Labs Dev Center](https://developer.offchainlabs.com/docs/Solidity_Support)。所有以太坊前端工具（如Truffle，Hardhat，The Graph，ether.js）也都完全支持，详见[前端集成](./前端集成.md)。
 
-虽然开发者和用户不需要因在Arbitrum上使用和部署合约而额外下载新软件，有些用户可能还是想成为链的验证者。在Arbitrum Rollup中，一个基本事实是，只要存在任意一个诚实的验证者，整个系统就可以正确地运行，安全从而有了暴涨。成为Arbitrum的验证者是完全无需许可的，只需要下载Arbitrum验证者节点软件并将其指向Arbitrum链即可。要发布一个断言或对其进行挑战，你只需要质押一定资金，在断言成立或挑战结束后即会收回（假设你是诚实的验证者）。
+虽然开发者和用户不需要因在Arbitrum上使用和部署合约而额外下载新软件，有些用户可能还是想成为链的验证者。在Arbitrum Rollup中，一个基本事实是，只要存在任意一个诚实的验证者，整个系统就可以正确地运行，安全从而有了保障。成为Arbitrum的验证者是完全无需许可的，只需要下载Arbitrum验证者节点软件并将其指向Arbitrum链即可。要发布一个断言或对其进行挑战，你只需要质押一定资金，在断言成立或挑战结束后即会收回（假设你是诚实的验证者）。
 
 简而言之，Arbitrum在没有任何安全问题与中心化的情况下，让用户能够以非常低廉的成本与合约交互。并且还支持所有以太坊的工具集，使用Arbitrum不需要任何额外工具，并且任何人都可以成为链的验证者。
 
