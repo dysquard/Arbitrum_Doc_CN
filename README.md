@@ -78,4 +78,4 @@
 
 ---------------------------------------------------------------
 
-译者: [Ben Law](https://github.com/dysquard/Arbitrum_Doc_CN) @ [Go Pocket](https://gopocket.finance) Studio
+译者: [Ben Law](https://github.com/dysquard) @ [Go Pocket](https://gopocket.finance) Studio
