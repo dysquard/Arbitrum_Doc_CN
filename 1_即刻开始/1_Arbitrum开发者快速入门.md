@@ -45,7 +45,7 @@ yarn
 *部署*
 
 将合约部署到Arbitrum：
-> truffle migrate --network arbitrum`
+`truffle migrate --network arbitrum`
 
 *使用dApp*
 
