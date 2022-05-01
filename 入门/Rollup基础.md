@@ -1,4 +1,4 @@
-# 5_Rollup基础
+# Rollup基础
 
 
 本文详尽地阐述了Arbitrum Rollup的一些基础概念，并提供了系统中不同组件的更详细的说明。
