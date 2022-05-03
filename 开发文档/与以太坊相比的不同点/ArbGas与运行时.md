@@ -1,11 +1,11 @@
-# 5_ArbGas与运行时
+# ArbGas与运行时
 
 ArbGas是Arbitrum用来管理链上执行成本的。与以太坊gas的理念一致，每个AVM指令都会有一定数量的ArbGas消耗，而一次运算的总成本是该运算包含的指令的ArbGas的加总。
 
 ArbGas并不能直接与以太坊gas相比。Arbitrum并没有硬性的ArbGas limit，正常情况下Arbitrum链每秒可以消耗任意数量的ArbGas，而在以太坊中则有gas limit。开发者和用户应该把ArbGas理解为是比以太坊gas更加
 且便宜的。
 
-## Why ArbGas?
+## 为什么设计 ArbGas?
 AVM的设计原则之一是，每个指令都应该对验证、证明和证据检验有可预测的执行时间。这就导致我们需要一种方式来计量或估算验证任何运算的时间。
 
 有两个原因。第一，我们需要确保证据检验有可预测的成本，这样就能预测EthBridge需要多少L1 gas，以确保EthBridge不会接近L1的gas limit。

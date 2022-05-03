@@ -1,18 +1,18 @@
-# 1_Layers之间的通信
-[Messaging Between Layers · Offchain Labs Dev Center](https://developer.offchainlabs.com/docs/l1_l2_messages)
-
+# Layers间的通信
 
 ## 标准Arbitrum交易：来自客户端的调用
 Arbitrum上标准的客户端调用的交易是通过EthBridge中Inbox.sendL2Message来实现的：
-`*function* sendL2Message(address chain, bytes calldata messageData) external;`
+```
+function sendL2Message(address chain, bytes calldata messageData) external;
+```
 
-正如在[Tx call生命周期](../7_杂项/3_Tx call生命周期.md)中描述的那样，通常大部分调用都会走聚合器并被批量处理。
+正如在[交易的生命周期](../杂项/交易的生命周期.md)中描述的那样，通常大部分调用都会走聚合器并被批量处理。
 
 不过，Arbitrum协议也支持在L1和L2之间传递信息。
 
 最常见的跨链通信的目的是充值和提现；不过这只是Arbitrum支持的通用型跨链合约调用中的特定的一种。本章描述了这些通用协议；深入解释请见[洞悉Arbitrum: 桥接](../2_深入理解协议/1_洞悉Arbitrum.md#桥接)。
 
-## 以太坊到Arbitrum：Retryable Tickets
+## 以太坊到Arbitrum：可重试票据
 ### 解释
 Arbitrum为以太坊到Arbitrum通信提供了几种方式；不过对L1到L2的通信我们一般只推荐retryable tickets，可重试票据。
 

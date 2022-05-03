@@ -1,4 +1,4 @@
-# 3_Solidity支持
+# Solidity支持
 
 
 Arbitrum Rollup支持EVM交易，你可以免信任地在Arbitrum上部署Solidty合约（以及其他会编译为EVM的语言如Vyper）。Arbitrum还支持几乎所有的Solidty代码，除了下面所说的几点小不同。

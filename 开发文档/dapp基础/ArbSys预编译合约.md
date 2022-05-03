@@ -1,4 +1,4 @@
-# 3_ArbSys预编译合约
+# ArbSys预编译合约
 
 
 ArbSys是每一条Arbitrum链中都存在的预编译的合约。顾名思义，ArbSys提供了一些系统级的合约功能支持。任何运行在Arbitrum链上的合约都可以调用ArbSys。
