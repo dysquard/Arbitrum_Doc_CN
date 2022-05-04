@@ -225,6 +225,6 @@ interface NodeInterface {
 相关用例请见[integration tests](https://github.com/OffchainLabs/arbitrum/blob/master/packages/arb-ts/integration_test/arb-bridge.test.ts.md)和[Token Bridge UI](https://github.com/OffchainLabs/arb-token-bridge)。
 
 
+← [ArbSys预编译合约](../dapp基础/ArbSys预编译合约.md)
 
-← [3_ArbSys预编译合约](../3_dapp基础/3_ArbSys预编译合约.md)
-→ [2_代币桥接](2_代币桥接.md)
+→ [代币桥](./代币桥.md)

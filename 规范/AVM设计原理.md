@@ -43,5 +43,6 @@ ArbOS，运行于L2，分离各个不受信的应用程序，追踪并限制其�
 
 为了支持ArbOS，AVM指令集支持保存和恢复虚拟机的栈，管理寄存器并追踪资源使用，接受外部调用者的信息。这些指令仅能被ArbOS自身使用，它会确保在不受信的代码中永远不会出现这些指令。
 
-←[1_ArbitrumRollup协议](1_ArbitrumRollup协议.md)
-→[3_推进与争议](3_推进与争议.md)
+← [ArbitrumRollup协议](./ArbitrumRollup协议.md)
+
+→ [推进与解决争议](./推进与解决争议.md)

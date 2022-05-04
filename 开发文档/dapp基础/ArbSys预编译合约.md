@@ -77,7 +77,6 @@ interface ArbSys {
 
 ```
 
+← [有用的地址](./有用的地址.md)
 
-
-← [2_合约部署](2_合约部署.md)
-→ [1_Layers之间的通信](../4_l1和l2互通性/1_Layers之间的通信.md)
+→ [Layers间的通信](../L1和L2互通性/Layers间的通信.md)

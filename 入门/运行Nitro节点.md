@@ -86,3 +86,7 @@
   ```
     docker run --rm -it  -p 0.0.0.0:8547:8547 -p 0.0.0.0:8548:8548 offchainlabs/nitro-node:v2.0.0-alpha.2 --l1.url https://l1-goeri-node:8545 --feed.input.url ws://local-relay-address:9642
   ```
+
+   ← [运行节点](./运行节点.md) 
+   
+   → [安装](./安装.md)

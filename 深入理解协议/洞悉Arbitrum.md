@@ -620,8 +620,9 @@ ArbGas定价取决于最小价格，和拥堵价格模型。
 
 所以进行Arbitrum交易，不应该去赌如何把gasbid压得尽可能低至当前ArbGas价格，而应该设置你愿意出的最高价格，同时需要注意发送者必须有至少gasbid*maxgas个ETH在其L2账户中。
 
-← [6_Arbitrum术语表](../入门/Arbitrum术语表.md) →
-[1_前端集成](../3_dapp基础/1_前端集成.md)
+← [Arbitrum术语表](./入门/Arbitrum术语表.md)
+
+→ [教程](../开发文档/dapp基础/教程.md)
 
 
 

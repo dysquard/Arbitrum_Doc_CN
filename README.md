@@ -14,6 +14,8 @@
 
 [运行节点](./入门/运行节点.md)
 
+[运行Nitro节点](./入门/运行Nitro节点)
+
 [安装](./入门/安装.md)
  
 [Arbitrum Rollup 基础](./入门/ArbitrumRollup基础.md)

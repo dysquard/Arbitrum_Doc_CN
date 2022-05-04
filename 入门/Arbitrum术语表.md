@@ -116,8 +116,9 @@
   链上合约的一系列消息的合约，消息可以由排序器直接放入收件箱，也可以通过慢速收件箱间接放入收件箱。
   
 
+← [Arbitrum Rollup 基础](./ArbitrumRollup基础.md)
 
-
+→ [洞悉Arbitrum](../深入理解协议/洞悉Arbitrum.md)
 
 
 

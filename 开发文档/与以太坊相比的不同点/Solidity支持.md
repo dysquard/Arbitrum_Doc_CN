@@ -16,5 +16,6 @@ Arbitrum Rollup支持EVM交易，你可以免信任地在Arbitrum上部署Solidt
 ## 时间
 Arbitrum支持`block.number`和`block.timestamp`。对于这些术语在Arbitrum语境下的意义，见[Arbitrum中的时间](4_区块编号和时间.md)。
 
-← [2_特殊特性](2_特殊特性.md)
-→ [4_区块编号和时间](4_区块编号和时间.md)
+← [特殊特性](./特殊特性.md)
+
+→ [区块编号和时间](./区块编号和时间.md)

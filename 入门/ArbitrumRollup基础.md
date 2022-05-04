@@ -63,6 +63,6 @@ Arbitrum Rollup通过多轮互动乐观式Rollup协议来保障安全，该协�
 ArbOS，Arbitrum操作系统，位于AVM之上，负责隔离每个未受信的合约，使用[ArbGas与运行时](../5_与以太坊相比的不同点/5_ArbGas与运行时.md)追踪并限制它们的资源使用，并管理负责为验证者从用户端收集运行费用的经济模型。通过将本应在L1智能合约上进行的任务迁移到了更便宜的L2上来，ArbOS给了Arbitrum极大的灵活性。详细请见[ArbOS](../7_杂项/2_ArbOS.md)。
 
 
-← [4_安装](4_安装.md)
+← [安装](./安装.md)
 
-→ [6_Arbitrum术语表](6_Arbitrum术语表.md)
+→ [Arbitrum术语表](./Arbitrum术语表.md)
