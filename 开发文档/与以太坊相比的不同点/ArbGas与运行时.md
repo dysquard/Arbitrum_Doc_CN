@@ -1,4 +1,4 @@
-# ArbGas与运行时
+# ArbGas与 Arbitrum 运行时
 
 ArbGas是Arbitrum用来管理链上执行成本的。与以太坊gas的理念一致，每个AVM指令都会有一定数量的ArbGas消耗，而一次运算的总成本是该运算包含的指令的ArbGas的加总。
 

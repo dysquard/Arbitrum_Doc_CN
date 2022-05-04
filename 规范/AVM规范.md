@@ -1,4 +1,4 @@
-# 4_AVM规范
+# AVM规范
 
 本文档以非正式的方式描述了Arbitrum VM架构的规范。相较于在USENIX Security 2018上发布的Arbitrum白皮书，该版本是经过简化的。另外，还将数据结构向以太坊进一步靠拢，以减少EVM to AVM翻译器的需要。
 

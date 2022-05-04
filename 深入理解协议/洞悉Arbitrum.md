@@ -1,19 +1,21 @@
 # 洞悉Arbitrum
 
-本章是对Arbitrum的设计及其原理的深入解析。本章节并不是API文档也不是代码教程，如有需要请去其余章节查看。
+本章是对 Arbitrum
+的设计及其原理的深入解析。本章节并不是API文档也不是代码教程，如有需要请去其余章节查看。"洞察 Arbitrum "是为那些想深入理解 Arbitrum 设计的人准备的。
 
 ## 为什么使用Arbitrum？
-Arbitrum是以太坊的L2扩容方案，它拥有独特的特性集：
+Arbitrum是以太坊的L2扩容方案，集合了自身独特的优点：
 * 无需信任的安全性：安全扎根于以太坊，任何人都可以确保正确的L2结果
 * 以太坊兼容性：所有EVM标准的合约和转账都可以在Arbitrum上执行
 * 可扩展性：将以太坊的计算和存储转移至链下，吞吐量更高
 * 最低成本：为最小化以太坊L1燃气成本而生，降低每笔交易的成本
 
-其余的L2方案也提供了其中一部分特性，但据我们所了解的，并没有一种方案能在相同成本下提供同样的特性集。
+其余的L2方案也提供了其中一部分特性，但据我们所了解的，并没有一种方案能在相同成本下提供同样的功能整合。
 
 ## 高屋建瓴
-在最基础层，Arbitrum链工作方式如图：
-![](洞悉Arbitrum/qwf_aYyB1AfX9s-_PQysOmPNtWB164_qA6isj3NhkDnmcro6J75f6MC2_AjlN60lpSkSw6DtZwNfrt13F3E_G8jdvjeWHX8EophDA2oUM0mEpPVeTlMbsjUCMmztEM0WvDpyWZ6R.jpg)
+在底层上，Arbitrum链工作方式如图： 
+
+![](./imgs/img_1.png)
 
 用户与合约将信息发送至收件箱。链将各条信息逐一读取并依次执行，将链的状态更新并产生一些输出。
 
@@ -33,12 +35,14 @@ Arbitrum是以太坊的L2扩容方案，它拥有独特的特性集：
 ## 乐观式Rollup
 Arbitrum是一种乐观式Rollup。我们来解读一下这个词汇。
 
-/Rollup/
+*Rollup* 
+
 Arbitrum是一种rollup，这意味着对Arbitrum链的输入也即收件箱中收到的信息，全部都以calldata的形式被记录在以太坊上。每个人都能查看收件箱的完整历史，而链状态又完全取决于收件箱历史。因此，仅凭借公开信息就可以决定当前正确的链状态的信息。如有必要，还可重建整个链状态。
 
 任何人都可以成为Arbitrum协议的完整参与者，运行自己的Arbitrum节点或者成为一名验证者。链的历史或状态是完全透明的。
 
-/乐观式/
+*Optimistic*
+
 Arbitrum是乐观的，通过验证者发布rollup区块以及任何人都可以对其进行挑战的方式，Arbitrum将链状态不断向前推进。如果挑战期（大约为一周）结束后仍没有对rollup区块提出挑战，Arbitrum就会将该rollup区块认定为正确的。如果在挑战期内有人提出挑战，Arbitrum会使用一个高效率的争议解决协议（下述）来判定谁是作恶者。作恶者的质押资金将被没收，其中一部分将奖励给诚信者（另一部分被销毁，以保证即使有共谋发生作恶者仍会被惩罚）。
 
 ## 交互式证明
@@ -73,8 +77,9 @@ Arbitrum的解决方案基于争议的分解。如果Alice的断言包含的行�
 Arbitrum的许多设计都是由交互式证明所带来的可能所驱动的。如果你看到一些Arbitrum的特性并疑惑为什么会这样，那么请记住两个非常好的问题：『这个特性是怎样支持交互式证明的？』和『它是怎样利用交互式证明的？』你在Arbitrum中大部分的问题都与交互式证明相关。
 
 ## Arbitrum架构
-下图展示了Arbitrum的基础架构。
-![](洞悉Arbitrum/1qwGMCrLQjJMv9zhWIUYkQXoDR2IksU5IzcSUPNJ5pWkY81pCvr7WkTf4-sb41cVohcnL-i6y8M1LU8v-4RXT_fdOsaMuLXnjwerSuKTQdHE-Hrvf4qBhRQ2r7qjxuAi3mk3hgkh.png)
+下图展示了Arbitrum的基础架构。 
+
+![](./imgs/img_2.png)
 
 左侧是用户以及用户选择的连接到区块链的服务提供者。右侧是构建于以太坊之上的Arbitrum系统。
 
@@ -85,9 +90,11 @@ Arbitrum的许多设计都是由交互式证明所带来的可能所驱动的。
 在以太坊之上是*EthBridge*，它由管理Arbitrum链的一系列以太坊上的合约组成。EthBridge仲裁Arbitrum rollup协议，以保证L2运行的正确性。（更多关于rollup协议请见下方的*Rollup协议*分区。）EthBridge还维护着链的收件箱和发件箱，让用户与合约能够将交易信息提交给L2并观察这些交易的输出。用户，L1合约，Arbitrum节点，调用EthBridge的一系列合约来与Arbitrum链交互。
 
 EthBridge上方的水平线是AVM，EthBridge就是通过这里与上层交流的。AVM可以执行程序来读取输入并产生输出。这里是Arbitrum最重要的接口，因为它区分开了L1和L2——具体分为抽象为收件箱/执行/发件箱/L1与使用该抽象模型的L2.
-![](洞悉Arbitrum/qwf_aYyB1AfX9s-_PQysOmPNtWB164_qA6isj3NhkDnmcro6J75f6MC2_AjlN60lpSkSw6DtZwNfrt13F3E_G8jdvjeWHX8EophDA2oUM0mEpPVeTlMbsjUCMmztEM0WvDpyWZ6R%202.jpg)
 
-再上一层是ArbOS，由Offchain Labs开发的软件，负责维护记录，交易管理，以及对智能合约监管。之所以叫ArbOS是因为它就像电脑或手机的操作系统（轻量级的）一样，它先启动然后再管理链上的其他代码。重要的一点是，ArbOS运行于L2上而非以太坊上，所以非常好地利用了扩容和L2低成本的运算。
+![](./imgs/img_1.png)
+
+再上一层是ArbOS，由Offchain
+Labs开发的软件，负责维护记录，交易管理，以及对智能合约监管。之所以叫ArbOS是因为它就像电脑或手机的操作系统（轻量级的）一样，它先启动然后再管理链上的其他代码。重要的一点是，ArbOS运行于L2上而非以太坊上，所以非常好地利用了扩容和L2低成本的运算。
 
 ArbOS之上的水平层叫做EVM兼容层，因为ArbOS为智能合约提供了兼容以太坊虚拟机的执行环境。也就是说，你可以向ArbOS发送合约的EVM代码，像在以太坊上部署合约一样，ArbOS会加载合约并令其可用。ArbOS在兼容性的细节方面处理的非常好，所以智能合约开发者可以像在以太坊上那样编写代码（更常见的情况是，直接将现有的以太坊合约移植过来）。
 
@@ -99,7 +106,9 @@ ArbOS之上的水平层叫做EVM兼容层，因为ArbOS为智能合约提供了�
 
 ## 在线上方还是下方？
 我们常说，在Arbitrum架构中分割L1和L2的是位于AVM的这条线。这种分层有利于界定某些行为发生的地点。
-![](洞悉Arbitrum/1qwGMCrLQjJMv9zhWIUYkQXoDR2IksU5IzcSUPNJ5pWkY81pCvr7WkTf4-sb41cVohcnL-i6y8M1LU8v-4RXT_fdOsaMuLXnjwerSuKTQdHE-Hrvf4qBhRQ2r7qjxuAi3mk3hgkh%202.png)
+
+![](./imgs/ig_2.png)
+
 线下方，是用来确保AVM以及链的执行的正确性的。而线上方则假设AVM会正确运行，专注于与运行在L2上的软件的互动。
 
 例如，Arbitrum验证者在下方工作，因为他们参与由线下方EthBridge管理的rollup协议，来确保AVM的运转是正常的。
@@ -161,14 +170,16 @@ Rollup协议记录了一条rollup区块的链条，它们与以太坊区块并�
 每个区块都会被分配一个截止时间，在该时间内其他验证者才能对其进行响应。如果你是一名验证者，并认同某一个rollup区块是正确的，那么你什么也不用做。如果你不认同该区块，你可以发布另一个有不同结果的区块，你可能会被该区块的质押者挑战。（更多请见下方『挑战』章节。）
 
 正常情况下，rollup链看起来是这样的：
-![](洞悉Arbitrum/vv118kJMXj76PG6J-Jv4BC9KTpe72mdfD1uWoqhKXvKKfPWHW6wMMCvJ9KKQx_VXIw34XfzT4yfyNVtQVstYRczLk6kLKvBv8Pbl-0MjSzGxz1Z_8T5Y_6UcDMWpy7_D9PxQYKdT.jpg)
+
+![](./imgs/img_3.jpg)
+
 左侧都是已确认区块，代表了该链的早期历史。这些区块都被EthBridge接受并记录下来。94号区块是『最新确认区块』。在右侧，有一系列新的刚被提出的rollup区块。EthBridge尚不能确认或拒绝，因为其截止时间还没有到。待决区块中最老的95号区块，被称为『首个待决区块』。
 
 注意，一个待决区块是可以连接在另一个待决区块之后的。这使得验证者能够不断地提出新的区块而不用等待EthBridge的最终确认。正常乐观情况下，所有的待决区块都是有效的，最终都会被接受。
 
 下面的例子展现了有恶意验证者存在的情况下链的状态。这是一个人工策划过的场景，用来说明协议可能碰到的各种情况。我们将各种情况都融汇到了一个场景中去。
 
-![](洞悉Arbitrum/IKBNeX9IVAD5Vom8vqYER4CEZhTecJJrp51ddlEGYiZrdV6y9zaG0Ip8HuKgfJ-eS9_TN_C2I0EPl-7H5ITRgSQqJONnSE7X0P62sRbGoiv_shmijBxsVDJL9RhWbyDjs2lKxU-M.jpg)
+![](./imgs/img_4.jpg)
 
 看起来有些复杂，我们梳理下。
 * 区块100已被确认。
@@ -220,7 +231,8 @@ EthBridge记录了当前所需要的质押数量。正常情况下会与基础�
 
 ## 挑战
 假设rollup链的状态如下：
-![](洞悉Arbitrum/kAZY9H73dqcHvboFDby9nrtbYZrbsHCYtE5X9NIZQsvcz58vV0WUWUq1xsYKzYWQSc1nPZ8W86LLX0lD3y-ctEaG2ISa2Wpz2pYxTzW09P1UvqSDuoqkHlGDYLLMTzLqX4rlP8Ca.png)
+
+![](./imgs/img_5.png)
 
 区块93和95是兄弟区块（父区块皆为92）。Alice质押于93上而Bob质押于95上。
 目前我们可知Alice和Bob对区块93的正确性有争议，Alice承诺93是正确的而Bob承诺93是错的。（Bob质押了95，而95之前的最新确认区块是92，这暗示了93是错的。）
@@ -295,13 +307,14 @@ EthBridge仅在单步证明时需要依情断案，它需要核查Alice提供的
 * 基于任何其他理由的人。想要保护自己资产的人，或想要成为一个优秀公民的人。大部分普通用户不需要这么做，我们也认为这不会是大部分用户的选择。
 
 
-## AVM
+## AVM：Arbitrum虚拟机
 Arbitrum虚拟机，AVM，是L1和L2的接口。L1提供了AVM接口并确保VM的正确运行。L2运行AVM并提供了一些功能，如部署合约，运行合约，追踪余额，以及所有有智能合约的区块链所需的能力。
 
 每个Arbitrum链都只有一个AVM，执行所有运算，维护所有存储空间。有些其他系统对每个合约都单独运行一个虚拟机，而Arbitrum更像以太坊，一个虚拟机管理整条链。对多个合约的管理是由运行在AVM上的软件实现的。
 
-从核心来看，一条链的VM的工作模型非常简单。读取收件箱中的信息，改变链的状态，并产生输出。
-![](洞悉Arbitrum/8CB13D03-D41B-4B9A-868F-BC8091F16A49.png)
+从核心来看，一条链的VM的工作模型非常简单。读取收件箱中的信息，改变链的状态，并产生输出。 
+
+![](./imgs/img_1.png)
 
 AVM设计的出发点是以太坊虚拟机EVM。因为AVM致力于高效地执行为EVM编写或编译的程序，所以在许多地方都保留了EVM的设计。例如，AVM采用了EVM的基础整型数据结构（256位大端序无符号整数，uint256），以及EVM中对整型操作的指令。
 
@@ -377,7 +390,6 @@ ArbOS是L2上可信赖的『操作系统』，它负责将各个不受信任的�
 使用L2可信赖的操作系统确实需要有VM指令集的支持，例如，允许OS限制并追踪合约使用的资源。
 
 客户端、EthBridge和ArbOS之间的通信信息格式，请见[ArbOS信息与log格式](../规范/ArbOS信息与log格式.md)。
-
 
 
 ## EVM兼容性
