@@ -15,7 +15,7 @@
   
 - **ArbGas**: 在 Arbitrum 上执行计价单位，以链的本地货币（Arbitrum One
   上的以太币）计价. ArbGas 在某种程度上类似于 L1 以太坊上的
-  gas，尽管其计算的因素不同。(详见[ArbGas和费用](深入理解协议/洞悉Arbitrum.md#ArbGas和费用)。)
+  gas，尽管其计算的因素不同。(详见[ArbGas和费用](../深入理解协议/洞悉Arbitrum.md#ArbGas和费用)。)
   
 - **Arbitrum 全节点**: 跟踪 Arbitrum 链状态并接收来自客户端的远程过程调用(RPC)的一方。类似于非挖矿的以太坊L1节点。
   
