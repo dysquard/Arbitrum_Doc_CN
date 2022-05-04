@@ -10,7 +10,7 @@ function sendL2Message(address chain, bytes calldata messageData) external;
 
 不过，Arbitrum协议也支持在L1和L2之间传递信息。
 
-最常见的跨链通信的目的是充值和提现；不过这只是Arbitrum支持的通用型跨链合约调用中的特定的一种。本章描述了这些通用协议；深入解释请见[洞悉Arbitrum: 桥接](../2_深入理解协议/1_洞悉Arbitrum.md#桥接)。
+最常见的跨链通信的目的是充值和提现；不过这只是Arbitrum支持的通用型跨链合约调用中的特定的一种。本章描述了这些通用协议；深入解释请见[洞悉Arbitrum: 桥接](../../深入理解协议/洞悉Arbitrum.md#桥接)。
 
 ## 以太坊到Arbitrum：可重试票据
 ### 解释
@@ -139,7 +139,7 @@ myBridge.ArbRetryableTx.redeem('mytxid')
 ### 解释
 L2到L1消息和L1到L2消息工作机制类似，但是是反向的：L2交易与编码过的L1信息数据一通发布，稍后执行。
 
-一个关键不同在于，从L2到L1方向，用户必须等挑战期结束后才能在L1上执行该消息；这是有乐观式rollup的特性决定的（见[最终性](3_确认与最终性.md)）。另外，不像retryable ticket，L2到L1信息没有时间上限；一旦挑战期过后，可以在任意时间点执行，无需着急。
+一个关键不同在于，从L2到L1方向，用户必须等挑战期结束后才能在L1上执行该消息；这是有乐观式rollup的特性决定的（见[最终性](./确认与最终性.md)）。另外，不像retryable ticket，L2到L1信息没有时间上限；一旦挑战期过后，可以在任意时间点执行，无需着急。
 
 ### L2到L1信息的生命周期
 L2到L1信息的生命周期大致可以分为四步，只有两部（最多！）需要用户发布交易。
@@ -149,7 +149,7 @@ L2到L1信息的生命周期大致可以分为四步，只有两部（最多！�
 2. **创建发件箱**
 在Arbitrum链状态前进一段时间后，ArbOS会搜集所有的外出信息，将其梅克尔化，然后将梅克尔树根发布在收件箱的[OutboxEntry](https://github.com/OffchainLabs/arbitrum/blob/master/packages/arb-bridge-eth/contracts/bridge/OutboxEntry.sol)中。请注意，该过程是自动的，不需要用户做什么。
 3. **用户获取外出信息的梅克尔证明**
-在Outbox Entry发布在L1上后，用户（任何人都行）可以通过`NodeInterface.lookupMessageBatchProof`计算其信息的梅克尔证明。
+在Outbox Entry发布在L1上后，用户（任何人都行）可以通过`NodeInterface.lookupMessageBatchProof`计算其信息的默克尔证明。
 ```
 
 /** @title Interface for providing Outbox proof data
