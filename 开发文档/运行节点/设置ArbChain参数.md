@@ -1,6 +1,5 @@
 # 设置ArbChain参数
 
-
 ArbChain时可以设置一系列参数。该文档对这些参数进行了详细解读并阐述了设置方法。
 
 注意：如果你直接通过`arb-validator or demo:deploy`而没有任何参数地运行节点，将会使用默认参数。
