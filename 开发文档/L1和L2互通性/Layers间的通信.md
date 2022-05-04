@@ -147,8 +147,8 @@ L2到L1信息的生命周期大致可以分为四步，只有两部（最多！�
 1. **发布L2到L1交易（Arbitrum交易）**
 客户端通过调用L2上的`ArbSys.sendTxToL1`来发布信息
 2. **创建发件箱**
-在Arbitrum链状态前进一段时间后，ArbOS会搜集所有的外出信息，将其梅克尔化，然后将梅克尔树根发布在收件箱的[OutboxEntry](https://github.com/OffchainLabs/arbitrum/blob/master/packages/arb-bridge-eth/contracts/bridge/OutboxEntry.sol)中。请注意，该过程是自动的，不需要用户做什么。
-3. **用户获取外出信息的梅克尔证明**
+在Arbitrum链状态前进一段时间后，ArbOS会搜集所有的外出信息，将其默克尔化，然后将默克尔树根发布在收件箱的[OutboxEntry](https://github.com/OffchainLabs/arbitrum/blob/master/packages/arb-bridge-eth/contracts/bridge/OutboxEntry.sol)中。请注意，该过程是自动的，不需要用户做什么。
+3. **用户获取外出信息的默克尔证明**
 在Outbox Entry发布在L1上后，用户（任何人都行）可以通过`NodeInterface.lookupMessageBatchProof`计算其信息的默克尔证明。
 ```
 
