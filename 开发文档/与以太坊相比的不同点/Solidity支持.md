@@ -12,9 +12,9 @@ Arbitrum Rollup支持EVM交易，你可以免信任地在Arbitrum上部署Solidt
 * `block.difficulty`返回常量2500000000000000
 * `block.gaslimit`返回区块的ArbGas limit
 * `gasleft`返回剩余的ArbGas
-* `block.number`在非序列器的Arbitrum链上，返回提交至收件箱时的L1区块编号；在序列器Arbitrum链上，返回该序列器接收到该交易时估算的L1区块编号（见[Arbitrum中的时间](4_区块编号和时间.md)）。
+* `block.number`在非序列器的Arbitrum链上，返回提交至收件箱时的L1区块编号；在序列器Arbitrum链上，返回该序列器接收到该交易时估算的L1区块编号（见[Arbitrum中的时间](./区块编号和时间.md)）。
 ## 时间
-Arbitrum支持`block.number`和`block.timestamp`。对于这些术语在Arbitrum语境下的意义，见[Arbitrum中的时间](4_区块编号和时间.md)。
+Arbitrum支持`block.number`和`block.timestamp`。对于这些术语在Arbitrum语境下的意义，见[Arbitrum中的时间](./区块编号和时间.md)。
 
 ← [特殊特性](./特殊特性.md)
 
