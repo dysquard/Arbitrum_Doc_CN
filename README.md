@@ -1,6 +1,6 @@
 # Arbitrum 中文文档
 
-该文档是 Arbitrum 中文文档，翻译来自[官方文档](https://developer.offchainlabs.com/docs/developer_quickstart)
+该文档是 Arbitrum 中文文档，翻译自[官方文档](https://developer.offchainlabs.com/docs/developer_quickstart)
 
 
 ## 入门	
